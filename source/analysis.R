@@ -11,7 +11,7 @@ get_total_cases <- function() {
   total_cases <- national %>%
     filter(cases == max(cases)) %>%
     pull(cases)
-  return(prettyNum(total_cases,big.mark=",",scientific=FALSE))
+  return(prettyNum(total_cases, big.mark = ", ",scientific=FALSE))
 }
 
 ?prettyNum()
@@ -21,7 +21,7 @@ get_total_deaths <- function() {
   total_deaths <- national %>%
     filter(deaths == max(deaths)) %>%
     pull(deaths)
-  return(total_deaths)
+  return(prettyNum(total_deaths, big.mark = ", ", scientific = FALSE))
 }
 
 # Run the following code to create a plot of cumulative cases over time
