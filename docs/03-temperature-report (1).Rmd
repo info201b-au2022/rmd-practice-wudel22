@@ -1,0 +1,51 @@
+---
+title: "Temperature Report"
+author: "David Hendry"
+date: '2022-11-01'
+output: html_document
+---
+
+```{r, echo=FALSE}
+source("02-temperatures (1).R")
+```
+
+### About R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+# Summary Information
+
+## The Chart
+
+This a report on temperatures. Specifically, it presents a distribution of *subjective* **feelings** for different temperatures. (Note: This is markdown. However, we can put in a chunk or R code, and it will show us the code and results! The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is useful!)
+
+```{r, echo=TRUE}
+get_chart()
+avg_temp <- get_avg_temperature()
+max_temp <- get_max_temperature()
+min_temp <- get_min_temperature()
+box_plot <- get_box_plot()
+```
+
+## The Average, Min, and Max Temperatures
+
+-   The average temperature is: **`r avg_temp` Celsius**.
+-   The maximum temperature is: **`r max_temp` Celsius**.
+-   The minimum temperature is: **`r min_temp` Celsius**.
+
+##Show the Distribution of Temperatures in a Box Plot
+```{r, echo=TRUE}
+box_plot
+```
+
+## The Dataset
+
+Let's show the dataset. Although this is not very nice to look it, it might be helpful for debugging. The key point: We can intermix R and markdown to create reports.
+
+```{r, echo=FALSE}
+print(get_temperature_data())
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
